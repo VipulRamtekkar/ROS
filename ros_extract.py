@@ -19,12 +19,11 @@ def main():
 
 	br = CvBridge()
 	bag = rosbag.Bag(args.rosbag,"r")
-	
-	 
+	access = 0777
 	if os.path.isdir("images"):
 		pass
 	else:
-		os.mkdir("images",0777)
+		os.mkdir("images",access)
 
 	count = 0
 
@@ -49,7 +48,7 @@ def main():
 		if os.path.isdir("messages"):
 			pass
 		else:
-			os.mkdir("messages",0777)
+			os.mkdir("messages",access)
 
 		skip_messgage = True # If the message rate is not equal to image rate 
 		miss = 22 # Compensating for the unequal message rates and changing the per message miss accordingly,
